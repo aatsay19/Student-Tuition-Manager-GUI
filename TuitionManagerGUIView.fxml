@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="student_tuition_manager_gui.TuitionManagerGUIController">
+   <top>
+      <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab closable="false" text="Student Tuition Manager and Console">
+            <content>
+              <AnchorPane>
+                     <children>
+                        <Label layoutX="25.0" layoutY="5.0" text="Select command, enter required information correctly, and click 'Execute Command' to display results on console." />
+                        <GridPane hgap="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="25.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="124.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="531.9999923706055" minWidth="10.0" prefWidth="461.33333333333326" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Select a command:" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.valignment="CENTER">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" onAction="#onAddCommandClick" text="A">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="command" />
+                                       </toggleGroup>
+                                       <HBox.margin>
+                                          <Insets right="14.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" onAction="#onRemoveCommandClick" text="R" toggleGroup="$command">
+                                       <HBox.margin>
+                                          <Insets right="14.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" onAction="#onCalculateSingleTuitionCommandClick" text="CO" toggleGroup="$command">
+                                       <HBox.margin>
+                                          <Insets right="14.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                    <RadioButton layoutX="99.0" layoutY="17.0" mnemonicParsing="false" onAction="#onCalculateAllTuitionCommandClick" text="CA" toggleGroup="$command">
+                                       <HBox.margin>
+                                          <Insets right="14.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" onAction="#onPayTuitionCommandClick" text="T" toggleGroup="$command">
+                                       <HBox.margin>
+                                          <Insets right="14.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" onAction="#onSetStudyAbroadCommandClick" text="S" toggleGroup="$command">
+                                       <HBox.margin>
+                                          <Insets right="14.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" onAction="#onSetFinancialAidCommandClick" text="F" toggleGroup="$command">
+                                       <HBox.margin>
+                                          <Insets right="14.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" onAction="#onPrintRosterCommandClick" text="P" toggleGroup="$command">
+                                       <HBox.margin>
+                                          <Insets right="14.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                    <RadioButton layoutX="181.0" layoutY="17.0" mnemonicParsing="false" onAction="#onPrintByNameCommandClick" text="PN" toggleGroup="$command">
+                                       <HBox.margin>
+                                          <Insets right="14.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                    <RadioButton layoutX="209.0" layoutY="17.0" mnemonicParsing="false" onAction="#onPrintByPaymentDateCommandClick" text="PT" toggleGroup="$command">
+                                       <HBox.margin>
+                                          <Insets right="14.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </HBox>
+                              <Label focusTraversable="false" text="Student Type/Status:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <HBox fx:id="studentStatusBox" alignment="CENTER_LEFT" disable="true" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" onAction="#onResidentClick" text="Resident">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="studentStatus" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onNonResidentClick" text="Non-Resident" toggleGroup="$studentStatus">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin></RadioButton>
+                                    <RadioButton mnemonicParsing="false" onAction="#onTriStateClick" text="Tri-State" toggleGroup="$studentStatus">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin></RadioButton>
+                                    <RadioButton layoutX="47.0" layoutY="10.0" mnemonicParsing="false" onAction="#onInternationalClick" text="International" toggleGroup="$studentStatus">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin></RadioButton>
+                                 </children>
+                              </HBox>
+                              <Label focusTraversable="false" text="Status-Specific Details:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <HBox fx:id="tristateStudentState" alignment="CENTER_LEFT" disable="true" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <children>
+                                    <RadioButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="NY">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="studentState" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="CT" toggleGroup="$studentState">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin></RadioButton>
+                                 </children>
+                              </HBox>
+                              <CheckBox fx:id="studyAbroadStatus" disable="true" mnemonicParsing="false" text="Study Abroad" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets right="175.0" />
+                                 </GridPane.margin>
+                              </CheckBox>
+                              <Label focusTraversable="false" text="Student Name:" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <TextField fx:id="studentNameField" disable="true" promptText="e.g. FirstName MiddleName LastName" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <Label focusTraversable="false" text="Student Major:" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                              <HBox fx:id="studentMajorBox" alignment="CENTER_LEFT" disable="true" minWidth="200.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" text="CS">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="studentMajor" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="EE" toggleGroup="$studentMajor">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="ME" toggleGroup="$studentMajor">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="IT" toggleGroup="$studentMajor">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="BA" toggleGroup="$studentMajor">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                    <Group />
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </HBox>
+                              <Label focusTraversable="false" text="Student Credit Hours:" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                              <Label text="Amount (in $):" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                              <TextField fx:id="dollarAmountField" disable="true" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="155.0" promptText="(e.g. 12345.67)" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                              <Label text="Payment Date:" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                              <DatePicker fx:id="paymentDateField" disable="true" editable="false" prefHeight="25.0" prefWidth="182.0" promptText="MM/DD/YYYY" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                              <Button fx:id="executeCommandButton" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#onExecuteCommandButtonClick" prefWidth="120.0" text="Execute Command" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8" GridPane.valignment="BOTTOM" />
+                              <ChoiceBox fx:id="creditsDropDownMenu" disable="true" prefHeight="25.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Payments and Other Functions">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </top>
+   <bottom>
+      <TextArea fx:id="outputConsole" editable="false" prefHeight="200.0" prefWidth="610.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" />
+         </BorderPane.margin>
+      </TextArea>
+   </bottom>
+</BorderPane>
